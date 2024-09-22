@@ -19,7 +19,7 @@ This repository serves as a personal log of my learning process and contains var
 
 | Day | Topic                       | Description                               |
 |-----|-----------------------------|-------------------------------------------|
-| 1   | Introduction to React       | Basics of React, JSX, and component structure. |
+| 1   | ES6+ features               |Arrow Functions,Destructuring,Template Literals,Default Parameters,Spread and Rest Operators,Modules,Promises, |
 | 2   | Components and Props        | Understanding functional and class components. |
 | 3   | State Management            | Managing state in React components.      |
 | 4   | Lifecycle Methods           | Exploring component lifecycle methods.    |
