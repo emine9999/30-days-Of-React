@@ -28,7 +28,7 @@ This repository serves as a personal log of my learning process and contains var
 | 30  | Final Project               | Building a complete application using learned concepts. |
 
 ## Getting Started
-#lecon one
+## Day 1
 # Understanding JavaScript Arrow Functions
 
 In modern JavaScript, arrow functions provide a concise and flexible way to define functions. Introduced in ES6 (ECMAScript 2015), arrow functions are a more readable alternative to traditional function expressions, particularly in scenarios involving callbacks and functional programming.
@@ -47,3 +47,16 @@ function add(a, b) {
 ```
 const add = (a, b) => a + b;
 ```
+As seen, the arrow function eliminates the need for the function keyword, curly braces for single-line expressions, and even the return statement (for single expressions).
+**2. Implicit Return**
+Arrow functions implicitly return the result of the expression if it's written in a single line, which reduces boilerplate code:
+```javascript
+const square = x => x * x;
+```
+This function will return the square of the input x without the need for an explicit return statement.
+**3. Handling Parameters**
+Arrow functions can handle zero, one, or multiple parameters. For no parameters, empty parentheses are used, while single parameters don’t require parentheses:
+
+No parameters: () => "Hello!"
+One parameter: x => x * 2
+Multiple parameters: (a, b) => a + b
