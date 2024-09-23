@@ -148,4 +148,181 @@ function greet({ name, age }) {
 const person = { name: 'Amine', age: 25 };
 greet(person);  // Output: Hello, my name is Amine and I am 25 years old.
 ```
+# Template Literals in JavaScript
 
+Template literals are a powerful feature introduced in ES6 (ECMAScript 2015) that allows for easier string manipulation. They provide a way to embed expressions, create multi-line strings, and use string interpolation without the need for cumbersome string concatenation.
+
+## Key Features of Template Literals
+
+1. **String Interpolation**:
+   - Template literals enable embedding variables and expressions directly within the string using the `${expression}` syntax.
+   - This makes it easier to create dynamic strings without having to use the `+` operator for concatenation.
+
+   **Example**:
+   ```javascript
+   const name = 'Alice';
+   const age = 30;
+   const greeting = `Hello, my name is ${name} and I am ${age} years old.`;
+   console.log(greeting);
+   // Output: Hello, my name is Alice and I am 30 years old.
+    ```
+**Multi-line Strings:**
+
+Unlike regular strings, which require \n to create new lines, template literals can span multiple lines easily.
+This is particularly useful for formatting strings that require line breaks.
+
+```javascript
+const message = `This is a multi-line string.
+It allows for easy formatting.
+You can write across multiple lines without any special characters.`;
+console.log(message);
+```
+**Expression Evaluation:**
+
+You can include any valid JavaScript expression inside the ${} braces. This can include arithmetic operations, function calls, and more.
+
+```javascript
+const x = 5;
+const y = 10;
+const sumMessage = `The sum of ${x} and ${y} is ${x + y}.`;
+console.log(sumMessage);
+// Output: The sum of 5 and 10 is 15.
+```
+# Default Parameters in JavaScript
+
+Default parameters are a feature introduced in ES6 (ECMAScript 2015) that allow functions to have default values for their parameters. This means that if no value or `undefined` is passed for a parameter, the function will use the specified default value instead.
+
+## Key Features of Default Parameters
+
+1. **Setting Default Values**:
+   - You can define default values for parameters by assigning them in the function definition.
+   - If an argument is not provided or is explicitly set to `undefined`, the default value will be used.
+
+   **Example**:
+   ```javascript
+   function greet(name = 'Guest') {
+       console.log(`Hello, ${name}!`);
+   }
+
+   greet(); // Output: Hello, Guest!
+   greet('Alice'); // Output: Hello, Alice!
+   ```
+# Spread and Rest Operators in JavaScript
+
+The Spread and Rest Operators are powerful features introduced in ES6 (ECMAScript 2015) that simplify working with arrays and objects. They use the same syntax (`...`) but serve different purposes depending on the context.
+
+## Spread Operator
+
+The Spread Operator allows an iterable (like an array or object) to be expanded into its elements. This is particularly useful for combining arrays, passing elements to functions, or creating copies of arrays or objects.
+
+### Key Features of the Spread Operator
+
+1. **Combining Arrays**:
+   - You can combine multiple arrays into one.
+
+   **Example**:
+   ```javascript
+   const array1 = [1, 2, 3];
+   const array2 = [4, 5, 6];
+   const combined = [...array1, ...array2];
+   console.log(combined); // Output: [1, 2, 3, 4, 5, 6]
+   ```
+**Copying Arrays:**
+
+You can create a shallow copy of an array.
+```javascript
+const original = [1, 2, 3];
+const copy = [...original];
+console.log(copy); // Output: [1, 2, 3]
+```
+**Spreading in Function Calls:**
+
+You can use the spread operator to pass elements of an array as individual arguments to a function.
+
+```javascript
+function sum(a, b, c) {
+    return a + b + c;
+}
+
+const numbers = [1, 2, 3];
+console.log(sum(...numbers)); // Output: 6
+```
+**Combining Objects:**
+
+You can also merge objects using the spread operator.
+
+```javascript
+const obj1 = { name: 'Alice' };
+const obj2 = { age: 25 };
+const combinedObj = { ...obj1, ...obj2 };
+console.log(combinedObj); // Output: { name: 'Alice', age: 25 }
+```
+**Rest Operator**
+The Rest Operator allows you to represent an indefinite number of arguments as an array. It is used in function parameter lists to gather arguments into a single array.
+**Key Features of the Rest Operator**
+**Function Parameters:**
+
+You can use the rest operator to handle multiple function arguments easily.
+
+```javascript
+function multiply(...args) {
+    return args.reduce((product, current) => product * current, 1);
+}
+
+console.log(multiply(2, 3, 4)); // Output: 24 (2 * 3 * 4)
+```
+**Destructuring with Rest:**
+
+You can use the rest operator to destructure objects or arrays and gather the remaining elements.
+```javascript
+const array = [1, 2, 3, 4, 5];
+const [first, second, ...rest] = array;
+console.log(first); // Output: 1
+console.log(second); // Output: 2
+console.log(rest); // Output: [3, 4, 5]
+```
+**Rest in Object Destructuring:**
+
+You can also use the rest operator when destructuring objects.
+```javascript
+const person = { name: 'Bob', age: 30, city: 'New York' };
+const { name, ...rest } = person;
+console.log(name); // Output: Bob
+console.log(rest); // Output: { age: 30, city: 'New York' }
+```
+# JavaScript Modules
+
+JavaScript modules provide a way to split code across different files, allowing for better organization, maintainability, and reusability of code. By using the `import` and `export` statements, developers can define dependencies between different parts of an application.
+
+## Key Features of Modules
+
+1. **Encapsulation**: Each module has its own scope. Variables and functions defined in a module are not accessible outside of it unless explicitly exported.
+
+2. **Reusability**: Modules can be reused across different parts of an application or even in different projects.
+
+3. **Maintainability**: By organizing code into separate modules, it's easier to manage and understand large codebases.
+
+## Exporting Modules
+
+To make variables, functions, or classes available to other modules, you can use the `export` keyword.
+
+### Example: Named Exports
+
+```javascript
+// math.js
+export const pi = 3.14;
+
+export function add(x, y) {
+    return x + y;
+}
+```
+**Importing Modules**
+To use exported modules in another file, the import keyword is used.
+
+```javascript
+// main.js
+import { pi, add } from './math.js';
+
+console.log(pi); // Output: 3.14
+console.log(add(2, 3)); // Output: 5
+```
