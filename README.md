@@ -60,3 +60,92 @@ Arrow functions can handle zero, one, or multiple parameters. For no parameters,
 No parameters: () => "Hello!"
 One parameter: x => x * 2
 Multiple parameters: (a, b) => a + b
+
+# Destructuring in JavaScript
+
+**Destructuring** in JavaScript is a syntax feature introduced in ES6 that allows you to extract values from arrays or properties from objects and assign them to variables in a more concise and readable way. It simplifies how data can be unpacked from structures, making your code easier to understand and maintain.
+
+## 1. Array Destructuring
+
+Array destructuring allows you to assign values from an array to variables in a single statement.
+
+### Example:
+```javascript
+const numbers = [1, 2, 3];
+
+// Destructuring assignment
+const [first, second, third] = numbers;
+
+console.log(first);  // Output: 1
+console.log(second); // Output: 2
+console.log(third);  // Output: 3
+```
+You can also skip elements by leaving spaces in the destructuring pattern:
+
+```javascript
+const numbers = [1, 2, 3, 4];
+
+// Skip the second element
+const [first, , third] = numbers;
+
+console.log(first);  // Output: 1
+console.log(third);  // Output: 3
+```
+**2. Object Destructuring**
+Object destructuring lets you extract properties from an object into variables, using property names as the variable names.
+
+```javascript
+const person = {
+  name: 'Amine',
+  age: 25,
+  city: 'Marrakech'
+};
+
+// Destructuring assignment
+const { name, age, city } = person;
+
+console.log(name);  // Output: Amine
+console.log(age);   // Output: 25
+console.log(city);  // Output: Marrakech
+```
+If the variable names need to be different from the property names, you can assign them like this:
+```javascript
+const person = { name: 'Amine', age: 25 };
+
+const { name: fullName, age: yearsOld } = person;
+
+console.log(fullName); // Output: Amine
+console.log(yearsOld); // Output: 25
+```
+**3. Default Values**
+Destructuring allows you to set default values for variables in case the property or array element is undefined:
+
+```javascript
+const { name = 'Guest', age = 18 } = { name: 'Amine' };
+
+console.log(name); // Output: Amine
+console.log(age);  // Output: 18 (default value)
+```
+**4. Nested Destructuring**
+You can destructure nested objects or arrays as well.
+
+```javascript
+const numbers = [1, [2, 3], 4];
+
+const [one, [two, three], four] = numbers;
+
+console.log(two);  // Output: 2
+console.log(three); // Output: 3
+```
+**5. Function Parameters Destructuring**
+You can use destructuring in function parameters to extract values from an object or array passed to a function.
+
+```javascript
+function greet({ name, age }) {
+  console.log(`Hello, my name is ${name} and I am ${age} years old.`);
+}
+
+const person = { name: 'Amine', age: 25 };
+greet(person);  // Output: Hello, my name is Amine and I am 25 years old.
+```
+
