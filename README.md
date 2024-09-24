@@ -326,3 +326,75 @@ import { pi, add } from './math.js';
 console.log(pi); // Output: 3.14
 console.log(add(2, 3)); // Output: 5
 ```
+# JavaScript Promises
+
+Promises are a powerful feature in JavaScript that allow for managing asynchronous operations in a cleaner and more manageable way. They represent a value that may be available now, or in the future, or never. Promises help prevent callback hell, making the code easier to read and maintain.
+
+## Key States of a Promise
+
+A Promise can be in one of three states:
+
+1. **Pending**: The initial state; the operation has not yet completed.
+2. **Fulfilled**: The operation completed successfully, and the promise has a resulting value.
+3. **Rejected**: The operation failed, and the promise has a reason for the failure (usually an error).
+
+## Creating a Promise
+
+You can create a Promise using the `Promise` constructor, which takes a function with two parameters: `resolve` and `reject`.
+
+### Example:
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+    const success = true; // Simulating success or failure
+    if (success) {
+        resolve('Operation was successful!');
+    } else {
+        reject('Operation failed.');
+    }
+});
+```
+**Consuming a Promise**
+You can handle the outcome of a Promise using the .then() method for fulfilled promises and .catch() for rejected promises.
+
+```javascript
+myPromise
+    .then(result => {
+        console.log(result); // Output: Operation was successful!
+    })
+    .catch(error => {
+        console.error(error);
+    });
+```
+**3. Promise.all()**
+The Promise.all() method takes an iterable of Promises and returns a single Promise that resolves when all of the Promises in the iterable have resolved or when the iterable contains no Promises. It rejects with the reason of the first Promise that rejects.
+
+```javascript
+const promise1 = Promise.resolve(1);
+const promise2 = Promise.resolve(2);
+const promise3 = Promise.resolve(3);
+
+Promise.all([promise1, promise2, promise3]).then(values => {
+    console.log(values); // Output: [1, 2, 3]
+});
+```
+**. Promise.race()**
+The Promise.race() method takes an iterable of Promises and returns a Promise that resolves or rejects as soon as one of the Promises in the iterable resolves or rejects, with its value or reason.
+```javascript
+const promise1 = new Promise((resolve) => setTimeout(resolve, 100, 'One'));
+const promise2 = new Promise((resolve) => setTimeout(resolve, 200, 'Two'));
+
+Promise.race([promise1, promise2]).then(value => {
+    console.log(value); // Output: One (the first promise to resolve)
+});
+```
+**. Promise.reject()**
+The Promise.reject() method returns a Promise that is rejected with a given reason (error). This is useful for returning a rejected Promise in a function that returns a Promise.
+```javascript
+const rejectedPromise = Promise.reject(new Error('Something went wrong.'));
+rejectedPromise.catch(error => {
+    console.error(error.message); // Output: Something went wrong.
+});
+
+```
+
